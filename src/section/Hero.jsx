@@ -60,6 +60,12 @@ const Hero = () => {
                 <div
                     className="carousel-item"
                     style={{
+                        backgroundImage: "url(/assets/img/mivestion2.JPG)"
+                    }}
+                />
+                <div
+                    className="carousel-item"
+                    style={{
                         backgroundImage: "url(/assets/img/dokkajian.jpeg)"
                     }}
                 />

@@ -17,6 +17,13 @@ const Home = () => {
             <Hero />
             <Main />
             <Footer />
+            <a
+                href="#"
+                className="scroll-top d-flex align-items-center justify-content-center active"
+            >
+                <i className="bi bi-arrow-up-short" />
+            </a>
+
             {/* <Preloader /> */}
         </>
 

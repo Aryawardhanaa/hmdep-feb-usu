@@ -32,7 +32,7 @@ const Header = () => {
                             <Link to="/hubungi-kami">Kritik dan Saran</Link>
                         </li>
                         <li>
-                            <a href="blog.html">Berita</a>
+                            <Link to="/berita">Berita</Link>
                         </li>
                     </ul>
                 </nav>
