@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Berita = () => {
     return (
@@ -38,8 +39,8 @@ const Berita = () => {
 
                                 <hr />
 
-                                <a href="blog-details.html" className="readmore stretched-link"><span>Read More</span><i
-                                    className="bi bi-arrow-right"></i></a>
+                                <Link to="/berita-detail/menjalin-kolaborasi" className="readmore stretched-link"><span>Read More</span><i
+                                    className="bi bi-arrow-right"></i></Link>
 
                             </div>
 
@@ -70,8 +71,8 @@ const Berita = () => {
 
                                 <hr />
 
-                                <a href="blog-details.html" className="readmore stretched-link"><span>Read More</span><i
-                                    className="bi bi-arrow-right"></i></a>
+                                <Link to="/berita-detail/majelis-sirah-semester-a" className="readmore stretched-link"><span>Read More</span><i
+                                    className="bi bi-arrow-right"></i></Link>
 
                             </div>
 
@@ -102,8 +103,8 @@ const Berita = () => {
 
                                 <hr />
 
-                                <a href="blog-details.html" className="readmore stretched-link"><span>Read More</span><i
-                                    className="bi bi-arrow-right"></i></a>
+                                <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link"><span>Read More</span><i
+                                    className="bi bi-arrow-right"></i></Link>
 
                             </div>
 

@@ -37,10 +37,10 @@ const Team = () => {
                         <div className="member-info text-center">
                             <h4>Walter White</h4>
                             <span>Chief Executive Officer</span>
-                            <p>
+                            {/* <p>
                                 Aliquam iure quaerat voluptatem praesentium possimus unde
                                 laudantium vel dolorum distinctio dire flow
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                     {/* End Team Member */}
@@ -73,10 +73,10 @@ const Team = () => {
                         <div className="member-info text-center">
                             <h4>Sarah Jhonson</h4>
                             <span>Product Manager</span>
-                            <p>
+                            {/* <p>
                                 Labore ipsam sit consequatur exercitationem rerum laboriosam
                                 laudantium aut quod dolores exercitationem ut
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                     {/* End Team Member */}
@@ -109,10 +109,10 @@ const Team = () => {
                         <div className="member-info text-center">
                             <h4>William Anderson</h4>
                             <span>CTO</span>
-                            <p>
+                            {/* <p>
                                 Illum minima ea autem doloremque ipsum quidem quas aspernatur modi
                                 ut praesentium vel tque sed facilis at qui
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                     {/* <div
