@@ -1,13 +1,15 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import Footer from "../section/Footer"
 import Header from "../section/Header"
 
 const PageLayout = () => {
+    const { pathname } = useLocation()
+
+    const breadcrumb = pathname == '/hubungi-kami' ? 'Kritik dan Saran' : pathname == '/berita' ? 'Berita' : ''
     return (
         <>
             <Header />
             <main id="main">
-                {/* ======= Breadcrumbs ======= */}
                 <div
                     className="breadcrumbs d-flex align-items-center"
                     style={{
@@ -18,12 +20,12 @@ const PageLayout = () => {
                         className="container position-relative d-flex flex-column align-items-center"
                         data-aos="fade"
                     >
-                        <h2>Kritik dan Saran</h2>
+                        <h2>{breadcrumb}</h2>
                         <ol>
                             <li>
                                 <a href="index.html">Beranda</a>
                             </li>
-                            <li>Kritik dan Saran</li>
+                            <li>{breadcrumb}</li>
                         </ol>
                     </div>
                 </div>

@@ -13,7 +13,6 @@ const Contact = () => {
                                 <p>A108 Adam Street, New York, NY 535022</p>
                             </div>
                         </div>
-                        {/* End Info Item */}
                         <div className="col-lg-3 col-md-6">
                             <div className="info-item d-flex flex-column justify-content-center align-items-center">
                                 <i className="bi bi-envelope" />
@@ -21,7 +20,6 @@ const Contact = () => {
                                 <p>contact@example.com</p>
                             </div>
                         </div>
-                        {/* End Info Item */}
                         <div className="col-lg-3 col-md-6">
                             <div className="info-item  d-flex flex-column justify-content-center align-items-center">
                                 <i className="bi bi-telephone" />
@@ -29,7 +27,6 @@ const Contact = () => {
                                 <p>+1 5589 55488 55</p>
                             </div>
                         </div>
-                        {/* End Info Item */}
                     </div>
                     <div className="row gy-4 mt-1">
                         <div className="col-lg-6 ">
