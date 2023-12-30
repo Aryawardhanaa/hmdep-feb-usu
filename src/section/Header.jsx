@@ -23,10 +23,10 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="services.html" className={pathname == '/struktur-oranisasi' ? 'active' : ''}>Struktur Organisasi</Link>
+                                <Link to="/struktur-organisasi" className={pathname == '/struktur-oranisasi' ? 'active' : ''}>Struktur Organisasi</Link>
                             </li>
                             <li>
-                                <Link to="projects.html" className={pathname == '/shop' ? 'active' : ''}>HMDEP SHOP</Link>
+                                <Link to="/product-list" className={pathname == '/product-list' ? 'active' : ''}>HMDEP SHOP</Link>
                             </li>
                             <li>
                                 <Link to="/hubungi-kami" className={pathname == '/hubungi-kami' ? 'active' : ''}>Kritik dan Saran</Link>

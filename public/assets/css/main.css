@@ -1806,6 +1806,9 @@ section {
 
 .recent-blog-posts .post-item .post-content {
   padding: 30px;
+  background-color: #fff;
+  height: 100%;
+
 }
 
 .recent-blog-posts .post-item .post-title {
@@ -2068,6 +2071,8 @@ section {
 
 .blog .posts-list .post-content {
   padding: 30px;
+  background-color: #fff;
+  height: 100%;
 }
 
 .blog .posts-list .post-title {

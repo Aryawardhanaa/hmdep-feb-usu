@@ -9,11 +9,11 @@ const VisiMisi = () => {
                         data-aos="zoom-in"
                         data-aos-delay="100"></div>
 
-                    <div className="col-lg-5 d-flex flex-column justify-content-center">
+                    <div className="col-lg-5 d-flex  flex-column justify-content-center">
                         <h3 className="text-center">Visi HMDEP</h3>
 
-                        <p className="text-center testimonials">
-                            <div className="testimonial-item" style={{ padding: "unset", margin: "unset", minHeight: "unset", boxShadow: "unset" }}>
+                        <p className="text-center testimonials ">
+                            <div className="testimonial-item bg-semiwarning" style={{ padding: "unset", margin: "unset", minHeight: "unset", boxShadow: "unset" }}>
                                 <i className="bi bi-quote quote-icon-left"></i>
                                 Optimalisasi Himpunan mahasiswa Departemen Ekonomi Pembangunan Universitas Sumatera Utara sebagai wadah pengembangan kemampuan dan potensi mahasiswa jurusan Ekonomi Pembangunan.
                                 <i className="bi bi-quote quote-icon-right"></i>

@@ -5,8 +5,6 @@ const Berita = () => {
         < ><section id="recent-blog-posts" className="recent-blog-posts">
             <div className="container" data-aos="fade-up">
 
-
-
                 <div className="section-header">
                     <h2>Berita</h2>
 

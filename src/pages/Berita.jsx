@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Berita = () => {
     return (
@@ -39,10 +40,10 @@ const Berita = () => {
                                         nostrum quidem aliquid dicta.
                                     </p>
                                     <hr />
-                                    <a href="blog-details.html" className="readmore stretched-link">
+                                    <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link">
                                         <span>Read More</span>
                                         <i className="bi bi-arrow-right" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -78,10 +79,10 @@ const Berita = () => {
                                         pariatur nam.
                                     </p>
                                     <hr />
-                                    <a href="blog-details.html" className="readmore stretched-link">
+                                    <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link">
                                         <span>Read More</span>
                                         <i className="bi bi-arrow-right" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -118,10 +119,10 @@ const Berita = () => {
                                         voluptate enim tenetur sunt omnis.
                                     </p>
                                     <hr />
-                                    <a href="blog-details.html" className="readmore stretched-link">
+                                    <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link">
                                         <span>Read More</span>
                                         <i className="bi bi-arrow-right" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -158,10 +159,10 @@ const Berita = () => {
                                         atque cum eligendi eaque iste omnis a qui.
                                     </p>
                                     <hr />
-                                    <a href="blog-details.html" className="readmore stretched-link">
+                                    <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link">
                                         <span>Read More</span>
                                         <i className="bi bi-arrow-right" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -198,10 +199,10 @@ const Berita = () => {
                                         corrupti autem consequuntur totam dolorem.
                                     </p>
                                     <hr />
-                                    <a href="blog-details.html" className="readmore stretched-link">
+                                    <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link">
                                         <span>Read More</span>
                                         <i className="bi bi-arrow-right" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -239,10 +240,10 @@ const Berita = () => {
                                         Omnis dolores sit.
                                     </p>
                                     <hr />
-                                    <a href="blog-details.html" className="readmore stretched-link">
+                                    <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link">
                                         <span>Read More</span>
                                         <i className="bi bi-arrow-right" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -252,13 +253,13 @@ const Berita = () => {
                     <div className="blog-pagination">
                         <ul className="justify-content-center">
                             <li>
-                                <a href="#">1</a>
+                                <Link to="#">1</Link>
                             </li>
                             <li className="active">
-                                <a href="#">2</a>
+                                <Link to="#">2</Link>
                             </li>
                             <li>
-                                <a href="#">3</a>
+                                <Link to="#">3</Link>
                             </li>
                         </ul>
                     </div>

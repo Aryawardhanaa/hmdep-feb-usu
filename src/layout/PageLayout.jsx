@@ -5,7 +5,7 @@ import Header from "../section/Header"
 const PageLayout = () => {
     const { pathname } = useLocation()
 
-    const breadcrumb = pathname == '/hubungi-kami' ? 'Kritik dan Saran' : pathname == '/berita' ? 'Berita' : ''
+    const breadcrumb = pathname == '/hubungi-kami' ? 'Kritik dan Saran' : pathname == '/berita' ? 'Berita' : pathname == '/product-list' ? 'Katalog' : pathname == '/struktur-organisasi' ? 'Struktur Organisasi' : ''
     return (
         <>
             <Header />
