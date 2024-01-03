@@ -26,21 +26,23 @@ const useMutation = () => {
 
     const mutate = async (body) => {
         setIsLoading(true);
-        fetch(apiUrl, {
-            redirect: "follow", headers: {
-                "Content-Type": "text/plain;charset=utf-8",
-            }, method: 'POST', body: JSON.stringify(body)
-        })
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-        // try {
-        //     const response = await axios.post(apiUrl, JSON.stringify(payload), mutationOptions);
-        //     setData(response.data);
-        // } catch (err) {
-        //     setError(err);
-        // } finally {
-        //     setIsLoading(false);
-        // }
+        const { nama, email, subjek, pesan } = body
+
+        // fetch(apiUrl, {
+        //     redirect: "follow", headers: {
+        //         "Content-Type": "text/plain;charset=utf-8",
+        //     }, method: 'POST', body: JSON.stringify(body)
+        // })
+        //     .then(response => console.log('Success!', response))
+        //     .catch(error => console.error('Error!', error.message))
+        try {
+            const response = await axios.get(apiUrl + `&nama=${nama}&email=${email}&pesan=${pesan}&subjek=${subjek}`);
+            setData(response.data);
+        } catch (err) {
+            setError(err);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return { data, error, isLoading, mutate };
