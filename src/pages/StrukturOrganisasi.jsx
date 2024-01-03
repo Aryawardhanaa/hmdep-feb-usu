@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap"
 import CardBidang from "../components/CardBidang"
-import Modals from "../components/Modals"
+import Modals from "../components/ModalProgram"
 import { useState } from "react";
 
 const StrukturOrganisasi = () => {

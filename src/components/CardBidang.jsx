@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Modals from "./Modals"
 import { Button } from "react-bootstrap";
+import ModalProgram from "./ModalProgram";
 
 const CardBidang = ({ nama_bidang, image }) => {
     const [modalShow, setModalShow] = useState(false);
@@ -23,7 +23,7 @@ const CardBidang = ({ nama_bidang, image }) => {
                 </div>
 
             </div>
-            <Modals
+            <ModalProgram
                 show={modalShow}
                 bidang={bidang}
                 onHide={() => setModalShow(false)}

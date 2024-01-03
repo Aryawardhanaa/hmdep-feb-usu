@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap"
 import ProductCard from "../components/ProductCard"
+import Modals from "../components/Modals"
 
 const ProductList = () => {
     return (
@@ -28,6 +29,7 @@ const ProductList = () => {
                     <ProductCard text={'Netflix'} image='netflix.webp' />
 
                 </div>
+
             </div>
         </ >
     )

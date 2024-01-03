@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import useQuery from "../hooks/useQuery";
+import { getBerita } from "../api";
+import { Spinner } from "react-bootstrap";
+import CardBerita from "../components/CardBerita";
 
 const Berita = () => {
+    const {
+        data: berita = [],
+        isLoading,
+        isSuccess,
+        error,
+        refetch,
+    } = useQuery(getBerita);
+
+    if (isLoading) return <Spinner animation="border" variant="warning" />
+
+    // console.log(berita.data);
     return (
         < ><section id="recent-blog-posts" className="recent-blog-posts">
             <div className="container" data-aos="fade-up">
@@ -12,102 +27,13 @@ const Berita = () => {
 
                 <div className="row gy-5">
 
-                    <div className="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div className="post-item position-relative h-100">
 
-                            <div className="post-img position-relative overflow-hidden">
-                                <img src="/assets/img/dokaudiensi.jpeg" className="img-fluid" alt="" />
-                                <span className="post-date">December 12</span>
-                            </div>
+                    {
+                        berita?.data?.map((item, index) => (
+                            <CardBerita slug={item.slug} author={item.author} created_at={item.created_at} judul={item.judul} image={item.url_gambar1} key={index} />
+                        ))
+                    }
 
-                            <div className="post-content d-flex flex-column">
-
-                                <h3 className="post-title">HMDEP Menjalin kolaborasi bersama PT.Sampoerna untuk menghadirkan perspektif dunia kerja mereka kepada mahasiswa.
-                                </h3>
-
-                                <div className="meta d-flex align-items-center">
-                                    <div className="d-flex align-items-center">
-                                        <i className="bi bi-person"></i> <span className="ps-2">Julia Parker</span>
-                                    </div>
-                                    <span className="px-3 text-black-50">/</span>
-                                    <div className="d-flex align-items-center">
-                                        <i className="bi bi-folder2"></i> <span className="ps-2">Politics</span>
-                                    </div>
-                                </div>
-
-                                <hr />
-
-                                <Link to="/berita-detail/menjalin-kolaborasi" className="readmore stretched-link"><span>Read More</span><i
-                                    className="bi bi-arrow-right"></i></Link>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div className="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div className="post-item position-relative h-100">
-
-                            <div className="post-img position-relative overflow-hidden">
-                                <img src="/assets/img/dokkajian.jpeg" className="img-fluid" alt="" />
-                                <span className="post-date">July 17</span>
-                            </div>
-
-                            <div className="post-content d-flex flex-column">
-
-                                <h3 className="post-title">DOKUMENTASI- Majelis Sirah Semester A</h3>
-
-                                <div className="meta d-flex align-items-center">
-                                    <div className="d-flex align-items-center">
-                                        <i className="bi bi-person"></i> <span className="ps-2">Mario Douglas</span>
-                                    </div>
-                                    <span className="px-3 text-black-50">/</span>
-                                    <div className="d-flex align-items-center">
-                                        <i className="bi bi-folder2"></i> <span className="ps-2">Sports</span>
-                                    </div>
-                                </div>
-
-                                <hr />
-
-                                <Link to="/berita-detail/majelis-sirah-semester-a" className="readmore stretched-link"><span>Read More</span><i
-                                    className="bi bi-arrow-right"></i></Link>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div className="col-xl-4 col-md-6">
-                        <div className="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
-
-                            <div className="post-img position-relative overflow-hidden">
-                                <img src="/assets/img/mivestion1.JPG" className="img-fluid" alt="" />
-                                <span className="post-date">September 05</span>
-                            </div>
-
-                            <div className="post-content d-flex flex-column">
-
-                                <h3 className="post-title">Dokumentasi MIVESTION - Senin, 27 November 2023</h3>
-
-                                <div className="meta d-flex align-items-center">
-                                    <div className="d-flex align-items-center">
-                                        <i className="bi bi-person"></i> <span className="ps-2">Lisa Hunter</span>
-                                    </div>
-                                    <span className="px-3 text-black-50">/</span>
-                                    <div className="d-flex align-items-center">
-                                        <i className="bi bi-folder2"></i> <span className="ps-2">Economics</span>
-                                    </div>
-                                </div>
-
-                                <hr />
-
-                                <Link to="/berita-detail/dokumentasi-mivestion" className="readmore stretched-link"><span>Read More</span><i
-                                    className="bi bi-arrow-right"></i></Link>
-
-                            </div>
-
-                        </div>
-                    </div>
 
                 </div>
 

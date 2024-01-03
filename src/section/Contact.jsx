@@ -1,5 +1,26 @@
+import { Spinner } from "react-bootstrap";
+import useMutation from "../hooks/useMutation";
+
+function ubahFormatObjek(objek) {
+    return JSON.parse(JSON.stringify(objek).replace(/"([^"]+)":/g, '"$1":'));
+}
 
 const Contact = () => {
+    const { data, error, isLoading, mutate } = useMutation();
+
+    if (isLoading) return <Spinner animation="border" variant="warning" />
+
+    const onsubmit = (e) => {
+        e.preventDefault();
+
+        const data = new FormData(e.target)
+        const formdata = Object.fromEntries(data.entries())
+        // const objekHasil = ubahFormatObjek(formdata);
+        // console.log(objekHasil);
+        mutate(formdata);
+    };
+    console.log(data);
+
     return (
         <><section id="contact" className="contact">
             <div className="container" data-aos="fade-up" data-aos-delay={100}>
@@ -18,20 +39,18 @@ const Contact = () => {
                     </div>
                     <div className="col-lg-6">
                         <form
-                            action="forms/contact.php"
-                            method="post"
-                            role="form"
+                            onSubmit={onsubmit}
                             className="php-email-form"
                         >
                             <div className="row gy-4">
                                 <div className="col-lg-6 form-group">
-                                    <label for="name" className="form-label">Nama</label>
+                                    <label for="nama" className="form-label">Nama</label>
                                     <input
                                         type="text"
-                                        name="name"
+                                        name="nama"
                                         className="form-control"
-                                        id="name"
-                                        placeholder="Your Name"
+                                        id="nama"
+                                        placeholder="Masukkan Nama"
                                         required=""
                                     />
                                 </div>
@@ -42,30 +61,30 @@ const Contact = () => {
                                         className="form-control"
                                         name="email"
                                         id="email"
-                                        placeholder="Your Email"
+                                        placeholder="Masukkan Email"
                                         required=""
                                     />
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label for="subject" class="form-label">Subjek</label>
+                                <label for="subjek" class="form-label">Subjek</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="subject"
-                                    id="subject"
-                                    placeholder="Subject"
+                                    name="subjek"
+                                    id="subjek"
+                                    placeholder="Masukkan Subjek"
                                     required=""
                                 />
                             </div>
                             <div className="form-group">
-                                <label for="message" class="form-label">Pesan</label>
+                                <label for="pesan" class="form-label">Pesan</label>
 
                                 <textarea
                                     className="form-control"
-                                    name="message"
+                                    name="pesan"
                                     rows={5}
-                                    placeholder="Message"
+                                    placeholder="Masukkan Pesan"
                                     required=""
                                     defaultValue={""}
                                 />
@@ -77,8 +96,10 @@ const Contact = () => {
                                     Your message has been sent. Thank you!
                                 </div>
                             </div>
-                            <div className="text-center">
-                                <button type="submit">Send Message</button>
+                            <div className="text-end">
+                                <button disabled={isLoading} type="submit">Kirim Pesan</button>
+                                {/* <Button variant="warning">Warning</Button>{' '} */}
+
                             </div>
                         </form>
                     </div>
