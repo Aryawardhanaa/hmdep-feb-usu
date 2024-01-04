@@ -19,7 +19,7 @@ const BeritaDetail = () => {
         },
     });
 
-    if (isLoading) return <Spinner animation="border" variant="warning" />
+
 
     // const [judul, url_gambar1, url_gambar2, konten, author, created_at, kategori, slug] = initialPost.data
     // console.log({ judul, url_gambar1, url_gambar2, konten, author, created_at, kategori, slug });

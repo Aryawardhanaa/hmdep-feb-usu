@@ -2,7 +2,7 @@ import { useState } from "react";
 import { baseURL } from "../api";
 import axios from "axios";
 
-const apiUrl = baseURL + '?action=insert';
+const apiUrl = baseURL + '/kritik';
 const mutationOptions = {
     headers: {
         'Access-Control-Allow-Origin': '*',
@@ -26,17 +26,11 @@ const useMutation = () => {
 
     const mutate = async (body) => {
         setIsLoading(true);
-        const { nama, email, subjek, pesan } = body
+        // const { nama, email, subjek, pesan } = body
 
-        // fetch(apiUrl, {
-        //     redirect: "follow", headers: {
-        //         "Content-Type": "text/plain;charset=utf-8",
-        //     }, method: 'POST', body: JSON.stringify(body)
-        // })
-        //     .then(response => console.log('Success!', response))
-        //     .catch(error => console.error('Error!', error.message))
         try {
-            const response = await axios.get(apiUrl + `&nama=${nama}&email=${email}&pesan=${pesan}&subjek=${subjek}`);
+            const response = await axios.post(apiUrl, body);
+            console.log(response.data);
             setData(response.data);
         } catch (err) {
             setError(err);
