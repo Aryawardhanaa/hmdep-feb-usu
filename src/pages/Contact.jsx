@@ -1,5 +1,21 @@
+import { Spinner } from "react-bootstrap";
+import useMutation from "../hooks/useMutation";
 
 const Contact = () => {
+    const { data, error, isLoading, mutate } = useMutation();
+
+    if (isLoading) return <Spinner animation="border" variant="warning" />
+
+    const onsubmit = (e) => {
+        e.preventDefault();
+
+        const data = new FormData(e.target)
+        const formdata = Object.fromEntries(data.entries())
+        // const objekHasil = ubahFormatObjek(formdata);
+        // console.log(objekHasil);
+        mutate(formdata);
+    };
+
     return (
         <>
 
@@ -17,21 +33,21 @@ const Contact = () => {
                             <div className="info-item d-flex flex-column justify-content-center align-items-center">
                                 <i className="bi bi-envelope" />
                                 <h3>Email Us</h3>
-                                <p>contact@example.com</p>
+                                <p>hmdep.usu@gmail.com</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <div className="info-item  d-flex flex-column justify-content-center align-items-center">
                                 <i className="bi bi-telephone" />
                                 <h3>Call Us</h3>
-                                <p>+1 5589 55488 55</p>
+                                <p>0812521231 (rangga)</p>
                             </div>
                         </div>
                     </div>
                     <div className="row gy-4 mt-1">
                         <div className="col-lg-6 ">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.1276371923996!2d98.65427391082089!3d3.5580603964012094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312fe177b1bbc3%3A0xaed26a999710359!2sFaculty%20of%20Economics%20and%20Business%20-%20University%20of%20North%20Sumatera!5e0!3m2!1sen!2sus!4v1702907899036!5m2!1sen!2sus"
                                 frameBorder={0}
                                 style={{ border: 0, width: "100%", height: 384 }}
                                 allowFullScreen=""
@@ -40,62 +56,59 @@ const Contact = () => {
                         {/* End Google Maps */}
                         <div className="col-lg-6">
                             <form
-                                action="forms/contact.php"
-                                method="post"
-                                role="form"
+                                onSubmit={onsubmit}
                                 className="php-email-form"
                             >
                                 <div className="row gy-4">
                                     <div className="col-lg-6 form-group">
+                                        <label htmlFor="nama" className="form-label">Nama</label>
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="nama"
                                             className="form-control"
-                                            id="name"
-                                            placeholder="Your Name"
+                                            id="nama"
+                                            placeholder="Masukkan Nama"
                                             required=""
                                         />
                                     </div>
                                     <div className="col-lg-6 form-group">
+                                        <label htmlFor="email" className="form-label">Email</label>
                                         <input
                                             type="email"
                                             className="form-control"
                                             name="email"
                                             id="email"
-                                            placeholder="Your Email"
+                                            placeholder="Masukkan Email"
                                             required=""
                                         />
                                     </div>
                                 </div>
                                 <div className="form-group">
+                                    <label htmlFor="subjek" className="form-label">Subjek</label>
                                     <input
                                         type="text"
                                         className="form-control"
-                                        name="subject"
-                                        id="subject"
-                                        placeholder="Subject"
+                                        name="subjek"
+                                        id="subjek"
+                                        placeholder="Masukkan Subjek"
                                         required=""
                                     />
                                 </div>
                                 <div className="form-group">
+                                    <label htmlFor="pesan" className="form-label">Pesan</label>
+
                                     <textarea
                                         className="form-control"
-                                        name="message"
+                                        name="pesan"
                                         rows={5}
-                                        placeholder="Message"
+                                        placeholder="Masukkan Pesan"
                                         required=""
                                         defaultValue={""}
                                     />
                                 </div>
-                                <div className="my-3">
-                                    <div className="loading">Loading</div>
-                                    <div className="error-message" />
-                                    <div className="sent-message">
-                                        Your message has been sent. Thank you!
-                                    </div>
-                                </div>
-                                <div className="text-center">
-                                    <button type="submit">Send Message</button>
+
+                                <div className="text-end">
+                                    <button disabled={isLoading} type="submit">Kirim Pesan</button>
                                 </div>
                             </form>
                         </div>

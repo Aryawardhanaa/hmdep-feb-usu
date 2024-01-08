@@ -1,0 +1,21 @@
+{
+    "name": "sharing1P2U",
+    "value": [
+        {
+            "durasi": "1 Hari",
+            "harga": "Rp. 3.000"
+        },
+        {
+            "durasi": "3 Hari",
+            "harga": "Rp. 5.000"
+        },
+        {
+            "durasi": "1 Minggu",
+            "harga": "Rp. 10.000"
+        },
+        {
+            "durasi": "1 Bulan",
+            "harga": "Rp. 22.000"
+        }
+    ]
+}

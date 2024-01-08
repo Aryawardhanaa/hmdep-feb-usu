@@ -26,7 +26,7 @@ const Header = () => {
                                 <Link to="/struktur-organisasi" className={pathname == '/struktur-oranisasi' ? 'active' : ''}>Struktur Organisasi</Link>
                             </li>
                             <li>
-                                <Link to="/product-list" className={pathname == '/product-list' ? 'active' : ''}>HMDEP SHOP</Link>
+                                <Link to="/product-list" className={pathname == '/product-list' ? 'active' : ''}>Salut APPS</Link>
                             </li>
                             <li>
                                 <Link to="/hubungi-kami" className={pathname == '/hubungi-kami' ? 'active' : ''}>Kritik dan Saran</Link>
