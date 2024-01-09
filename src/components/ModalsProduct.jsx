@@ -43,12 +43,10 @@ const ModalsProduct = (props) => {
                                                         <div key={ip} className="card d-flex flex-row justify-content-between p-3">  <span>{price.durasi}</span> <span>{price.harga}</span></div>
                                                     )
                                                 }
-
                                             </div>
                                         </div>
                                     ) : null
                                 }
-
                                 <div className="text-end mt-5">
                                     <Link to={'/'} className="btn btn-warning px-5 py-2">Pesan Sekarang</Link>
                                 </div>

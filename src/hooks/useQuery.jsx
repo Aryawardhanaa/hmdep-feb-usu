@@ -1,11 +1,50 @@
-import { useCallback, useEffect, useState } from "react";
+// import { useCallback, useEffect, useState } from "react";
 
-const noop = () => { };
-const defaultConfig = {
-    onSuccess: noop,
-    onError: noop,
-};
+// const noop = () => { };
+// const defaultConfig = {
+//     onSuccess: noop,
+//     onError: noop,
+// };
 
+// // const useQuery = (fn, config = defaultConfig) => {
+// //     const [state, setState] = useState({
+// //         data: null,
+// //         isLoading: true,
+// //         isSuccess: false,
+// //         isError: false,
+// //         error: "",
+// //     });
+// //     const { onSuccess, onError } = config;
+
+// //     const runQuery = () => {
+// //         if (!fn) return;
+
+// //         setState((s) => ({ ...s, isLoading: true }));
+// //         fn().then((data) => {
+// //             setState({
+// //                 data,
+// //                 isLoading: false,
+// //                 isSuccess: true,
+// //                 isError: false,
+// //                 error: "",
+// //             });
+// //             onSuccess(data);
+// //         }).catch((error) => {
+// //             setState({
+// //                 data: null,
+// //                 isLoading: false,
+// //                 isSuccess: false,
+// //                 isError: true,
+// //                 error: error.message || "Failed to fetch",
+// //             });
+// //             onError(error);
+// //         });
+// //     };
+
+// //     useEffect(runQuery, []);
+
+// //     return { ...state, refetch: runQuery };
+// // };
 // const useQuery = (fn, config = defaultConfig) => {
 //     const [state, setState] = useState({
 //         data: null,
@@ -16,35 +55,50 @@ const defaultConfig = {
 //     });
 //     const { onSuccess, onError } = config;
 
-//     const runQuery = () => {
+//     const runQuery = useCallback(() => {
 //         if (!fn) return;
 
 //         setState((s) => ({ ...s, isLoading: true }));
-//         fn().then((data) => {
-//             setState({
-//                 data,
-//                 isLoading: false,
-//                 isSuccess: true,
-//                 isError: false,
-//                 error: "",
+//         fn()
+//             .then((data) => {
+//                 setState({
+//                     data,
+//                     isLoading: false,
+//                     isSuccess: true,
+//                     isError: false,
+//                     error: "",
+//                 });
+//                 onSuccess(data);
+//             })
+//             .catch((error) => {
+//                 setState({
+//                     data: null,
+//                     isLoading: false,
+//                     isSuccess: false,
+//                     isError: true,
+//                     error: error.message || "Failed to fetch",
+//                 });
+//                 onError(error);
 //             });
-//             onSuccess(data);
-//         }).catch((error) => {
-//             setState({
-//                 data: null,
-//                 isLoading: false,
-//                 isSuccess: false,
-//                 isError: true,
-//                 error: error.message || "Failed to fetch",
-//             });
-//             onError(error);
-//         });
-//     };
+//     }, [fn, onSuccess, onError]); // Dependencies of useCallback
 
-//     useEffect(runQuery, []);
+//     useEffect(() => {
+//         runQuery();
+//     }, [runQuery]); // Dependency of useEffect
 
 //     return { ...state, refetch: runQuery };
 // };
+
+// export default useQuery;
+
+import { useEffect, useState } from "react";
+
+const noop = () => { };
+const defaultConfig = {
+    onSuccess: noop,
+    onError: noop,
+};
+
 const useQuery = (fn, config = defaultConfig) => {
     const [state, setState] = useState({
         data: null,
@@ -55,7 +109,7 @@ const useQuery = (fn, config = defaultConfig) => {
     });
     const { onSuccess, onError } = config;
 
-    const runQuery = useCallback(() => {
+    const runQuery = () => {
         if (!fn) return;
 
         setState((s) => ({ ...s, isLoading: true }));
@@ -80,11 +134,9 @@ const useQuery = (fn, config = defaultConfig) => {
                 });
                 onError(error);
             });
-    }, [fn, onSuccess, onError]); // Dependencies of useCallback
+    };
 
-    useEffect(() => {
-        runQuery();
-    }, [runQuery]); // Dependency of useEffect
+    useEffect(runQuery, []);
 
     return { ...state, refetch: runQuery };
 };
