@@ -48,7 +48,7 @@ const ModalsProduct = (props) => {
                                     ) : null
                                 }
                                 <div className="text-end mt-5">
-                                    <Link to={'/https://wa.me/085262356123?text=halo'} target={'blank'} className="btn btn-warning px-5 py-2">Pesan Sekarang</Link>
+                                    <Link to={'https://wa.me/085262356123?text=halo'} target={'blank'} className="btn btn-warning px-5 py-2">Pesan Sekarang</Link>
                                 </div>
                             </div>
                         </div>
