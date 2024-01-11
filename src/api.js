@@ -15,11 +15,9 @@ export const getBerita = () =>
     API.get("/exec").then(({ data }) => data);
 export const getAllProduct = () =>
     API.get("/exec?action=all-product").then(({ data }) => data);
+export const getAllBidang = () =>
+    API.get("/exec?action=all-program").then(({ data }) => data);
 export const getProductBySlug = (slug) =>
     API.get(`/exec?action=find-product&q=${slug}`).then(({ data }) => data);
-
-
-// export const getBeritaBySlug = (slug) =>
-//     API.get(`/berita-by-slug?q=${slug}`).then(({ data }) => data);
 export const getBeritaBySlug = (slug) =>
     API.get(`/exec?action=find&q=${slug}`).then(({ data }) => data);

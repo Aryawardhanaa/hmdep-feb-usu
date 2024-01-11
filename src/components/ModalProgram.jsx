@@ -1,7 +1,18 @@
 import Modal from 'react-bootstrap/Modal';
+function transformObject(inputObject) {
+    const programKeys = Object.keys(inputObject).filter(key => key.startsWith('program'));
+    const transformedObject = {
+        bidang: inputObject.bidang,
+        gambar: inputObject.gambar,
+        program: programKeys.map(key => ({ text: inputObject[key] }))
+    };
 
+    return transformedObject;
+}
 const ModalProgram = (props) => {
     // console.log(props);
+    const obj = props.data.length > 0 ? transformObject(props.data[0]) : []
+
     return (
         <Modal
             {...props}
@@ -15,9 +26,25 @@ const ModalProgram = (props) => {
             <Modal.Body scrollable={true}>
                 <div className="container px-5 py-4">
                     <h2 className='bg-semigreen p-3 text-center rounded-semi text-white'>Program Kerja {props.bidang}</h2>
-                    <CardProgja />
-                    <CardProgja />
-                    <CardProgja />
+                    {
+                        obj.program ? obj.program.map((val, i) => {
+                            const [title, description] = val.text.split('|')
+                            // console.log(title);
+                            return (
+
+                                <div key={i} className="card-program-kerja bg-semiwarning2 text-black">
+                                    <p className="text-title font-bold">
+                                        <b>{title}</b>
+                                    </p>
+                                    <p className=" text-subtitle"> {description} </p>
+                                </div>
+                            )
+                        }
+                            // <CardProgja key={i} />
+                        ) : null
+                    }
+                    {/* <CardProgja />
+                    <CardProgja /> */}
                 </div>
             </Modal.Body>
 

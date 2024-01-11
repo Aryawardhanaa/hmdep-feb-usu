@@ -1,4 +1,4 @@
-import { Spinner } from "react-bootstrap";
+import { Card, Placeholder, Spinner } from "react-bootstrap";
 import ProductCard from "../components/ProductCard"
 import useQuery from "../hooks/useQuery";
 import { getAllProduct } from "../api";
@@ -18,7 +18,21 @@ const ProductList = () => {
     //     localStorage.setItem('products', JSON.stringify(products))
     // }, [])
 
-    if (isLoading) return <Spinner animation="border" variant="warning" />
+    if (isLoading) {
+        return <>
+            <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                    <Placeholder as={Card.Title} animation="glow">
+                        <Placeholder xs={6} />
+                    </Placeholder>
+                    <Placeholder as={Card.Text} animation="glow">
+                        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+                        <Placeholder xs={6} /> <Placeholder xs={8} />
+                    </Placeholder>
+                </Card.Body>
+            </Card>
+        </>
+    }
     if (isSuccess && products) {
         localStorage.setItem('products', JSON.stringify(products.data))
     }
@@ -48,6 +62,7 @@ const ProductList = () => {
                 </div>
                 <div className="row" style={{ gap: "1rem" }}>
                     {
+
                         arr.map((val, key) => (
                             <ProductCard key={key} text={val.nama} image={val.gambar} />
                         ))
