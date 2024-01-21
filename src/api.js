@@ -7,14 +7,18 @@ export const apiURL = 'https://be-hmd.vercel.app'
 const API = axios.create({
     baseURL,
 });
-const APIBase = axios.create({
+export const APIBase = axios.create({
     apiURL,
 });
 
 export const getBerita = () =>
     API.get("/exec").then(({ data }) => data);
+export const sendContact = () =>
+    APIBase.post("/kritik").then(({ data }) => data);
 export const getAllProduct = () =>
     API.get("/exec?action=all-product").then(({ data }) => data);
+export const getVisiMisiBPH = () =>
+    API.get("/exec?action=visi-misi-bph").then(({ data }) => data);
 export const getAllBidang = () =>
     API.get("/exec?action=all-program").then(({ data }) => data);
 export const getProductBySlug = (slug) =>

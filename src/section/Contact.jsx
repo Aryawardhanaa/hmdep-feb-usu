@@ -1,12 +1,13 @@
 import { Spinner } from "react-bootstrap";
 import useMutation from "../hooks/useMutation";
+import { apiURL } from "../api";
 
 function ubahFormatObjek(objek) {
     return JSON.parse(JSON.stringify(objek).replace(/"([^"]+)":/g, '"$1":'));
 }
 
 const Contact = () => {
-    const { data, error, isLoading, mutate } = useMutation();
+    const { data, error, isLoading, mutate } = useMutation(apiURL + '/kritik');
 
     if (isLoading) return <Spinner animation="border" variant="warning" />
 
@@ -16,7 +17,7 @@ const Contact = () => {
         const data = new FormData(e.target)
         const formdata = Object.fromEntries(data.entries())
         // const objekHasil = ubahFormatObjek(formdata);
-        // console.log(objekHasil);
+        // console.log(formdata);
         mutate(formdata);
     };
 

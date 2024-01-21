@@ -9,6 +9,7 @@ const CardBidang = ({ data, nama_bidang, image }) => {
     //     modalShow: false,
     //     bidang: ''
     //   });
+    console.log({ bidang, data });
     const newdata = data.filter((val, i) => val.bidang === bidang)
 
     return (

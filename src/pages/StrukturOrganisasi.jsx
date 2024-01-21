@@ -1,7 +1,9 @@
-import { Button } from "react-bootstrap"
+import { Button, Card, Placeholder } from "react-bootstrap"
 import CardBidang from "../components/CardBidang"
 import Modals from "../components/ModalProgram"
 import { useState } from "react";
+import { getAllBidang } from "../api";
+import useQuery from "../hooks/useQuery";
 
 const StrukturOrganisasi = () => {
     const [modalShow, setModalShow] = useState(false);
@@ -14,7 +16,7 @@ const StrukturOrganisasi = () => {
                         <h2>Badan Pengurus Harian</h2>
                     </div>
 
-                    <div className="row gy-5">
+                    <div className="row justify-content-center gy-5">
                         <div
                             className="col-lg-4 col-md-6 member"
                             data-aos="fade-up"
@@ -42,12 +44,11 @@ const StrukturOrganisasi = () => {
                                 </div>
                             </div>
                             <div className="member-info text-center">
-                                <h4>Walter White</h4>
+                                <h4>Rangga Aditya Fangga dan Muhammad Hanif Aulia</h4>
                                 <span>Chief Executive Officer</span>
 
                             </div>
                         </div>
-                        {/* End Team Member */}
                         <div
                             className="col-lg-4 col-md-6 member"
                             data-aos="fade-up"
@@ -80,58 +81,57 @@ const StrukturOrganisasi = () => {
 
                             </div>
                         </div>
-                        <div
-                            className="col-lg-4 col-md-6 member"
-                            data-aos="fade-up"
-                            data-aos-delay={300}
-                        >
-                            <div className="member-img">
-                                <img
-                                    src="assets/img/pengurus4.jpg"
-                                    className="img-fluid"
-                                    alt=""
-                                />
-                                <div className="social">
-                                    <a href="#">
-                                        <i className="bi bi-twitter" />
-                                    </a>
-                                    <a href="#">
-                                        <i className="bi bi-facebook" />
-                                    </a>
-                                    <a href="#">
-                                        <i className="bi bi-instagram" />
-                                    </a>
-                                    <a href="#">
-                                        <i className="bi bi-linkedin" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="member-info text-center">
-                                <h4>William Anderson</h4>
-                                <span>CTO</span>
 
-                            </div>
-                        </div>
 
                     </div>
                     <br />
                     <div className="section-header mt-5">
                         <h2>  Pengurus Bidang</h2>
                     </div>
+                    <ListBidang />
 
-                    <div className="  " style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "30px" }}>
-                        <CardBidang nama_bidang={'Bidang Penelitian dan Pengembangan'} image={'bidang1.jpg'} />
-                        <CardBidang nama_bidang={'Bidang Kerohanian'} image={'bidang1.jpg'} />
-                        <CardBidang nama_bidang={'Bidang Minat dan Bakat'} image={'bidang2.jpg'} />
-                        <CardBidang nama_bidang={'Bidang Organisasi'} image={'bidang2.jpg'} />
-                        <CardBidang nama_bidang={'Bidang Hubungan Masyarakat'} image={'bidang3.jpg'} />
-                        <CardBidang nama_bidang={'Bidang Kewirausahaan'} image={'bidang3.jpg'} />
 
-                    </div>
                 </div>
             </section>
         </>
     )
 }
 
+const ListBidang = () => {
+    const {
+        data: bidang = [],
+        isLoading,
+        isSuccess,
+        error,
+        refetch,
+    } = useQuery(getAllBidang);
+    if (isLoading) {
+        return <>
+            <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                    <Placeholder as={Card.Title} animation="glow">
+                        <Placeholder xs={6} />
+                    </Placeholder>
+                    <Placeholder as={Card.Text} animation="glow">
+                        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+                        <Placeholder xs={6} /> <Placeholder xs={8} />
+                    </Placeholder>
+                </Card.Body>
+            </Card>
+        </>
+    }
+    console.log(bidang);
+    return (
+        <div className="  " style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "30px" }}>
+            {
+                bidang.data.map((val, i) =>
+
+                    <CardBidang data={bidang.data} key={i} nama_bidang={val.bidang} image={val.gambar} />
+                )
+            }
+
+
+        </div>
+    )
+}
 export default StrukturOrganisasi
